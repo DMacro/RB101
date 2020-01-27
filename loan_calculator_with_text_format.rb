@@ -202,7 +202,7 @@ loop do
     prompt('Over a period of:')
     information_prompt("#{timeframe_years.to_f} years")
 
-    question_prompt("Do you want to change any figures?")
+    question_prompt("Do you want to change any figures? (y/n)")
     change = gets.chomp.downcase
     if change.start_with?('y')
     else
@@ -224,7 +224,7 @@ loop do
   interest_paid = total_repayments - loan
   interest_paid_format = number_format(interest_paid)
 
-  important_prompt('{Monthly repayment:')
+  important_prompt('Monthly repayment:')
   calc_prompt("#{currency_choice}#{monthly_payments_format}")
   important_prompt('Payback Period:')
   calc_prompt("#{time_months} months.")
@@ -234,7 +234,7 @@ loop do
   calc_prompt("#{currency_choice}#{interest_paid_format}")
   sleep(0.5)
 
-  prompt("Would you like to do another calculation? (y/n)")
+  question_prompt("Would you like to do another calculation? (y/n)")
 
   reapply = gets.chomp.downcase
   if reapply.start_with?('y')
@@ -243,7 +243,7 @@ loop do
   end
 end
 
-prompt("Thank you #{name} for your time.")
+prompt("Thank you #{name}, for your time.")
 sleep(S_2)
 prompt('I hope this has been helpful for you.')
 sleep(S_1)
